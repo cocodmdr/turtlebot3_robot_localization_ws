@@ -1,27 +1,31 @@
 # turtlebot3_robot_localization_ws
 
-This repository's goal is to make a ready to use simulation that use robot_localization package for sensor fusing\
-This simulation works under ROS2 Foxy\
-The simulation will use a turtlebot3 waffle in the turtlebot world\
-The turtlebot urdf and sdf files were modified to add a gps sensor\
-Also the urdf will use an encoder wheel odometry\
-There are two launch file for robot_localization package :\
--first one is sensor fusion with odometry and IMU sensor\
--second one is  sensor fusion with odometry, IMU and GPS sensor
+This repository's goal is to make a ready to use simulation that use robot_localization package for sensor fusing.
 
-download robot_localisation in your src folder
+This simulation works under ROS2 Foxy.\
+The simulation will use a turtlebot3 waffle in the turtlebot world.\
+Turtlebot's urdf and sdf files were modified to add a gps sensor.\
+Also the urdf will use the wheel encoder odometry
+
+There are two launch file for robot_localization package :
+- First one is sensor fusion with odometry and IMU sensor.
+- Second one is  sensor fusion with odometry, IMU and GPS sensor.
+
+
+Download this repository and enter it:
 ~~~
-cd turtlebot3_robot_localization_ws/src/
-git clone --single-branch --branch foxy-devel https://github.com/cra-ros-pkg/robot_localization.git
+git clone https://github.com/cocodmdr/turtlebot3_robot_localization_ws.git
+cd turtlebot3_robot_localization_ws
 ~~~
 
-install required dependencies and build package
+Install required dependencies and build package:
 ~~~
 rosdep install --from-paths src --ignore-src -r -y
-colcon build --symlink-install --packages-select robot_localization
+colcon build --symlink-install
 ~~~
 
-start gazebo with turtlebot3, it has IMU and GPS sensors
+Start gazebo with turtlebot3, it has IMU and GPS sensors.\
+Make sure you sourced ROS2 Foxy in each terminal.
 ~~~
 source turtlebot3_robot_localization_ws/install/setup.bash
 export TURTLEBOT3_MODEL=waffle
@@ -29,41 +33,38 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/student/turtlebot3_robot_local
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ~~~
 
-if gazebo is not working properly, kill and relaunch
+If gazebo is not working properly, kill and relaunch.
 ~~~
 killall gazebo 
 killall gzserver
 killall gzclient
 ~~~
 
-start robot_localization local ekf example
+Start either the first example or the second one **but not both**:
+
+1. Start robot_localization local ekf example:
 ~~~
 source turtlebot3_robot_localization_ws/install/setup.bash
 ros2 launch robot_localization ekf.launch.py
 ~~~
 
-start robot_localization ekf with gps example
+2. Start robot_localization ekf with gps example:
 ~~~
 source turtlebot3_robot_localization_ws/install/setup.bash
 ros2 launch robot_localization dual_ekf_navsat_example.launch.py
 ~~~
 
-You can control the virtual TurtleBot3 by using Teleoperation
+You can control the virtual TurtleBot3 by using keyboard teleoperation:
 ~~~
 source turtlebot3_robot_localization_ws/install/setup.bash
 export TURTLEBOT3_MODEL=waffle
 ros2 run turtlebot3_teleop teleop_keyboard
 ~~~
 
-start joystick and play around
-~~~
-source xaver_ros2/xaver_ros2_ws/install/setup.bash
-ros2 launch joystick joystick.launch.py
-~~~
-
-visualize in rviz
+Visualize in Rviz:
 ~~~
 source turtlebot3_robot_localization_ws/install/setup.bash
 rviz2 -d /home/student/turtlebot3_robot_localization_ws/src/turtlebot3_simulations/turtlebot3_gazebo/rviz/tb3_gazebo_robot_localization.rviz
 ~~~
 
+In Rviz you can use the **reset** button when you relaunch the gazebo simulation because there are sometimes problems due to time jumps.
