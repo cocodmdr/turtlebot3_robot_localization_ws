@@ -1,3 +1,5 @@
+# turtlebot3_robot_localization_ws
+
 This repository's goal is to make a ready to use simulation that use robot_localization package for sensor fusing\
 This simulation works under ROS2 Foxy\
 The simulation will use a turtlebot3 waffle in the turtlebot world\
@@ -53,5 +55,3 @@ source turtlebot3_robot_localization_ws/install/setup.bash
 rviz2 -d /home/student/turtlebot3_robot_localization_ws/src/turtlebot3_simulations/turtlebot3_gazebo/rviz/tb3_gazebo_robot_localization.rviz
 ~~~
 
-
-# turtlebot3_robot_localization_ws
