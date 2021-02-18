@@ -44,6 +44,9 @@ ekf_filter_node:
 # Whether to publish the acceleration state. Defaults to false if unspecified.
         publish_acceleration: false
 
+# If the filter sees a jump back in time, the filter is reset (convenient for testing with rosbags!)
+        reset_on_time_jump: true
+
 # REP-105 (http://www.ros.org/reps/rep-0105.html) specifies four principal coordinate frames: base_link, odom, map, and
 # earth. base_link is the coordinate frame that is affixed to the robot. Both odom and map are world-fixed frames.
 # The robot's position in the odom frame will drift over time, but is accurate in the short term and should be
@@ -82,11 +85,17 @@ ekf_filter_node:
 # do not provide some of the state variables estimated by the filter. For example, a TwistWithCovarianceStamped message
 # has no pose information, so the first six values would be meaningless in that case. Each vector defaults to all false
 # if unspecified, effectively making this parameter required for each sensor.
-        odom0_config: [true,  true,  false,
+        odom0_config: [false, false, false,
                        false, false, false,
-                       false, false, false,
+                       true,  true,  false,
                        false, false, true,
                        false, false, false]
+
+        #        [x_pos   , y_pos    , z_pos,
+        #         roll    , pitch    , yaw,
+        #         x_vel   , y_vel    , z_vel,
+        #         roll_vel, pitch_vel, yaw_vel,
+        #         x_accel , y_accel  , z_accel]
 
 # If you have high-frequency data or are running with a low frequency parameter value, then you may want to increase
 # the size of the subscription queue so that more measurements are fused.
