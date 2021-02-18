@@ -89,7 +89,7 @@
         <plugin name="turtlebot3_imu" filename="libgazebo_ros_imu_sensor.so">
           <ros>
             <!-- <namespace>/tb3</namespace> -->
-            <remapping>~/out:=imu</remapping>
+            <remapping>~/out:=imu/data</remapping>
           </ros>
         </plugin>
       </sensor>
