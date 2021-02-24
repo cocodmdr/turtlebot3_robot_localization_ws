@@ -10,9 +10,7 @@ Panels:
         - /TF1
         - /Odometry/local blue1/Topic1
         - /Odometry/global magenta1/Shape1
-        - /Odometry/gps axes1
         - /Odometry/gps axes1/Shape1
-        - /Imu1
         - /Imu1/Acceleration properties1
       Splitter Ratio: 0.4630630612373352
     Tree Height: 946
@@ -385,7 +383,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 8.220525741577148
+      Distance: 9.65919017791748
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -400,10 +398,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.4247965812683105
+      Pitch: 1.5647963285446167
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz_default_plugins)
-      Yaw: 2.986593008041382
+      Yaw: 3.140000104904175
     Saved: ~
 Window Geometry:
   Displays:
