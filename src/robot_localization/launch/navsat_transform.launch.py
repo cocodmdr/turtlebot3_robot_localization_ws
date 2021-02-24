@@ -29,6 +29,11 @@ def generate_launch_description():
             executable='navsat_transform_node',
             name='navsat_transform_node',
             output='screen',
-            parameters=[os.path.join(get_package_share_directory("robot_localization"), 'params', 'navsat_transform.yaml')],
-           ),
+            parameters=[os.path.join(get_package_share_directory("robot_localization"), 'params', 'navsat_transform.yaml'), {'use_sim_time': True}],
+            remappings=[('imu', 'imu/data'),
+                        ('gps/fix', 'gps/fix'), 
+                        ('gps/filtered', 'gps/filtered'),
+                        ('odometry/gps', 'odometry/gps'),
+                        ('odometry/filtered', 'odometry/global')],
+            ),
 ])

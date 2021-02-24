@@ -28,9 +28,9 @@ def generate_launch_description():
         launch_ros.actions.Node(
             package='robot_localization',
             executable='ekf_node',
-            name='ekf_filter_node',
+            name='ekf_filter_node_map',
             output='screen',
-            parameters=[os.path.join(get_package_share_directory("robot_localization"), 'params', 'ekf.yaml'), {'use_sim_time': True} ],
-            remappings=[('odometry/filtered', 'odometry/local')],
+            parameters=[os.path.join(get_package_share_directory("robot_localization"), 'params', 'dual_ekf_navsat_example.yaml'), {'use_sim_time': True}],
+            remappings=[('odometry/filtered', 'odometry/global')],
             )
         ])
