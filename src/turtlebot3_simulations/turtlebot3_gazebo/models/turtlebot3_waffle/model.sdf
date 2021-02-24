@@ -41,10 +41,33 @@
     </link>
 
     <link name="imu_link">
+      <gravity>true</gravity>
       <sensor name="tb3_imu" type="imu">
         <always_on>true</always_on>
-        <update_rate>200</update_rate>
+        <update_rate>100</update_rate>
+        <visualize>true</visualize>
         <imu>
+        <!-- Currently, noise on orientation is not supported. If you need this feature, consider adding it to gazebo. -->
+          <orientation>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-3</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-3</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-3</stddev>
+              </noise>
+            </z>
+          </orientation>
           <angular_velocity>
             <x>
               <noise type="gaussian">
@@ -87,9 +110,12 @@
           </linear_acceleration>
         </imu>
         <plugin name="turtlebot3_imu" filename="libgazebo_ros_imu_sensor.so">
+          <initial_orientation_as_reference>false</initial_orientation_as_reference>
+          <frame_name>imu_link</frame_name>
           <ros>
-            <!-- <namespace>/tb3</namespace> -->
-            <remapping>~/out:=imu/data</remapping>
+            <namespace>/imu</namespace>
+            <!-- <argument>~/out:=data</argument> -->
+            <remapping>~/out:=data</remapping>
           </ros>
         </plugin>
       </sensor>
@@ -104,13 +130,13 @@
             <horizontal>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>2e-3</stddev>
+                <stddev>7e-2</stddev>
               </noise>
             </horizontal>
             <vertical>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>2e-3</stddev>
+                <stddev>12</stddev>
               </noise>
             </vertical>
           </position_sensing>
