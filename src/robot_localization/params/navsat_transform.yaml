@@ -1,5 +1,9 @@
 navsat_transform_node:
     ros__parameters:
+
+        use_sim_time: true
+
+
 # Frequency of the main run loop
         frequency: 30.0
 
@@ -20,10 +24,10 @@ navsat_transform_node:
         yaw_offset: 0.0
 
 # If this is true, the altitude is set to 0 in the output odometry message. Defaults to false.
-        zero_altitude: false
+        zero_altitude: true
 
 # If this is true, the transform world_frame->utm transform is broadcast for use by other nodes. Defaults to false.
-        broadcast_utm_transform: false
+        broadcast_utm_transform: true
 
 # If this is true, the utm->world_frame transform will be published instead of the world_frame->utm transform. 
 # Note that broadcast_utm_transform still has to be enabled. Defaults to false.
@@ -31,7 +35,7 @@ navsat_transform_node:
 
 # If this is true, all received odometry data is converted back to a lat/lon and published as a NavSatFix message as
 # /gps/filtered. Defaults to false.
-        publish_filtered_gps: false
+        publish_filtered_gps: true
 
 # If this is true, the node ignores the IMU data and gets its heading from the odometry source (typically the
 # /odometry/filtered topic coming from one of robot_localization's state estimation nodes). BE CAREFUL when using this!
@@ -46,5 +50,5 @@ navsat_transform_node:
 # Instead of using the first GPS location and IMU-based heading for the local-frame origin, users can specify the
 # origin (datum) using this parameter. The fields in the parameter represent latitude and longitude in decimal degrees,
 # and heading in radians. As navsat_transform_node assumes an ENU standard, a 0 heading corresponds to east.
-        datum: [55.944904, -3.186693, 0.0]
+        # datum: [55.944904, -3.186693, 0.0]
 
