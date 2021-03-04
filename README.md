@@ -51,7 +51,7 @@ ros2 launch robot_localization ekf.launch.py
 2. Start robot_localization ekf with gps example:
 ~~~
 source turtlebot3_robot_localization_ws/install/setup.bash
-ros2 launch robot_localization dual_ekf_navsat_example.launch.py
+ros2 launch robot_localization dual_ekf_navsat_example_simulation.launch.py
 ~~~
 
 You can control the virtual TurtleBot3 by using keyboard teleoperation:
