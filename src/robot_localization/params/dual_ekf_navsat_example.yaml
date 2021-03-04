@@ -47,7 +47,7 @@ ekf_filter_node_odom:
                   true,  true,  true]
     imu0_nodelay: false
     imu0_differential: false
-    imu0_relative: true
+    imu0_relative: false
     imu0_queue_size: 7
     imu0_pose_rejection_threshold: 0.8                 # Note the difference in parameter names
     imu0_twist_rejection_threshold: 0.8                #
@@ -143,7 +143,7 @@ ekf_filter_node_map:
                   true,  true,  true]
     imu0_nodelay: false
     imu0_differential: false
-    imu0_relative: true
+    imu0_relative: false
     imu0_queue_size: 7
     imu0_pose_rejection_threshold: 0.8                 # Note the difference in parameter names
     imu0_twist_rejection_threshold: 0.8                #
@@ -193,7 +193,9 @@ navsat_transform:
     yaw_offset: 0.0  # if IMU reads 0 when facing magnetic north instead of east then set parameter to pi/2
     zero_altitude: true
     broadcast_utm_transform: true
+    broadcast_utm_transform_as_parent_frame: false
     publish_filtered_gps: true
     use_odometry_yaw: false
     wait_for_datum: false
+    
 
