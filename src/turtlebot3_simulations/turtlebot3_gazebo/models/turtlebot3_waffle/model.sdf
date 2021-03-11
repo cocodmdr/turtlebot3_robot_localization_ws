@@ -130,13 +130,13 @@
             <horizontal>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>7e-2</stddev>
+                <stddev>1e-2</stddev>
               </noise>
             </horizontal>
             <vertical>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>12</stddev>
+                <stddev>1</stddev>
               </noise>
             </vertical>
           </position_sensing>
