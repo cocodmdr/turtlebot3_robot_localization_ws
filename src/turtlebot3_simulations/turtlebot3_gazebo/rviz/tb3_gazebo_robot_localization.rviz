@@ -9,10 +9,10 @@ Panels:
         - /RobotModel1
         - /TF1
         - /TF1/Frames1
-        - /TF1/Frames1/utm1
         - /Odometry/local blue1/Topic1
         - /Odometry/global magenta1/Shape1
         - /Odometry/gps axes1/Shape1
+        - /PoseArray1
       Splitter Ratio: 0.4630630612373352
     Tree Height: 907
   - Class: rviz_common/Selection
@@ -128,6 +128,8 @@ Visualization Manager:
           Value: true
         map:
           Value: true
+        ncs:
+          Value: true
         odom:
           Value: true
         utm:
@@ -142,7 +144,25 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        utm:
+          map:
+            ncs:
+              {}
+            odom:
+              base_footprint:
+                base_link:
+                  caster_back_left_link:
+                    {}
+                  caster_back_right_link:
+                    {}
+                  gps_link:
+                    {}
+                  imu_link:
+                    {}
+                  wheel_left_link:
+                    {}
+                  wheel_right_link:
+                    {}
       Update Interval: 0
       Value: true
     - Angle Tolerance: 0.10000000149011612
@@ -309,7 +329,7 @@ Visualization Manager:
       Box properties:
         Box alpha: 1
         Box color: 252; 233; 79
-        Enable box: true
+        Enable box: false
         x_scale: 0.5
         y_scale: 0.5
         z_scale: 0.009999999776482582
@@ -324,6 +344,26 @@ Visualization Manager:
         Value: /imu/data
       Value: true
       fixed_frame_orientation: false
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz_default_plugins/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: PoseArray
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /gps_pose_array
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -366,21 +406,26 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
-      Class: rviz_default_plugins/TopDownOrtho
+      Class: rviz_default_plugins/Orbit
+      Distance: 15.43600845336914
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Focal Point:
+        X: 0.3624493479728699
+        Y: 5.443643569946289
+        Z: 1.4243438243865967
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 86.24549865722656
+      Pitch: 1.3147963285446167
       Target Frame: <Fixed Frame>
-      Value: TopDownOrtho (rviz_default_plugins)
-      X: 0
-      Y: 0
+      Value: Orbit (rviz_default_plugins)
+      Yaw: 4.71738862991333
     Saved: ~
 Window Geometry:
   Displays:
